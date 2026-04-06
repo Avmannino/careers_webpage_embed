@@ -6,6 +6,7 @@ export const jobPostings = [
     location: "50 Barry Pl, Stamford, CT 06902",
     datePosted: "April 6, 2026",
     payRange: "$18.00 - $21.00 per hour",
+    jobType: "Part-time - Weekend Shifts (Sat: 6:30am - 2:30pm; Sun: 2:30pm - 10:30pm)",
     applyUrl:
       "https://employers.indeed.com/jobs/view?employerJobId=aXJpOi8vYXBpcy5pbmRlZWQuY29tL0VtcGxveWVySm9iLzlkZWI5Y2QxLWZkMjgtNGUyOS04OWMzLTc1NzRhZDI3YjYzNw%3D%3D",
     overview:

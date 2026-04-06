@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
+// Replace `careers_webpage_embed` with your actual GitHub repo name if different
 export default defineConfig({
   plugins: [react()],
-})
+  base: "/careers_webpage_embed/",
+});
