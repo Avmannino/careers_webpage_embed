@@ -8,7 +8,7 @@ export const jobPostings = [
     payRange: "$18.00 - $21.00 per hour",
     jobType: "Part-time - Weekend Shifts (Sat: 6:30am - 2:30pm; Sun: 2:30pm - 10:30pm)",
     applyUrl:
-      "https://employers.indeed.com/jobs/view?employerJobId=aXJpOi8vYXBpcy5pbmRlZWQuY29tL0VtcGxveWVySm9iLzlkZWI5Y2QxLWZkMjgtNGUyOS04OWMzLTc1NzRhZDI3YjYzNw%3D%3D",
+      "https://www.indeed.com/job/part-time-front-desk-team-member-weekend-availibility-required-ac19ed960d5332da",
     overview:
       "Provide friendly, efficient front-of-house support—handling tickets, skate rentals, guest inquiries, and café service—while embracing rink culture to ensure a seamless experience for every visitor.",
     coreDuties: [
