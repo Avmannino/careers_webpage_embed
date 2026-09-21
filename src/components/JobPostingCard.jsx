@@ -48,6 +48,9 @@ function JobPostingCard({ job }) {
           <div className="jobQuickInfoItem">
             <span className="jobQuickInfoLabel">Job Type</span>
             <span>{job.jobType}</span>
+            {job.shifts?.map((shift, index) => (
+              <span key={index}>{shift}</span>
+            ))}
           </div>
         </div>
       </div>

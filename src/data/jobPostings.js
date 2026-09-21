@@ -1,14 +1,18 @@
 export const jobPostings = [
   {
     id: "front-desk-team-member-weekends",
-    title: "Part Time | Front Desk Team Member | WEEKEND AVAILIBILITY REQUIRED",
+    title: "Part Time | Front Desk Team Member | WEEKEND SHIFTS",
     company: "Wings Arena",
     location: "50 Barry Pl, Stamford, CT 06902",
-    datePosted: "April 6, 2026",
+    datePosted: "September 21, 2026",
     payRange: "$18.00 - $21.00 per hour",
-    jobType: "Part-time - Weekend Shifts (Sat: 6:30am - 2:30pm; Sun: 2:30pm - 10:30pm)",
+    jobType: "Part-time - Weekend Shifts",
+    shifts: [
+      "Sat: 6:30am - 2:30pm | 2:30pm - 10:30pm",
+      "Sun: 6:30am - 2:30pm | 2:30pm - 10:30pm"
+    ],
     applyUrl:
-      "https://www.indeed.com/job/part-time-front-desk-team-member-weekend-availibility-required-ac19ed960d5332da",
+      "https://www.indeed.com/job/part-time-front-desk-team-member-weekend-shifts-bef83a8670e23f7e",
     overview:
       "Provide friendly, efficient front-of-house support—handling tickets, skate rentals, guest inquiries, and café service—while embracing rink culture to ensure a seamless experience for every visitor.",
     coreDuties: [
