@@ -10,8 +10,8 @@ function App() {
           <p className="careersEyebrow">Join Our Team</p>
           <h1>Careers at Wings Arena</h1>
           <p className="careersIntro">
-            Explore current opportunities at Wings Arena. Click any posting
-            below to view the full listing and apply directly through Indeed.
+            Explore current opportunities at Wings Arena. Expand a posting
+            to view the full listing, then apply directly through Indeed.
           </p>
         </header>
 

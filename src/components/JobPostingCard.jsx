@@ -1,13 +1,23 @@
+import { useState } from "react";
 import "./JobPostingCard.css";
 
 function JobPostingCard({ job }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const handleCardClick = () => {
-    window.open(job.applyUrl, "_blank", "noopener,noreferrer");
+    if (job.applyUrl) {
+      window.open(job.applyUrl, "_blank", "noopener,noreferrer");
+    }
   };
 
   const handleButtonClick = (event) => {
     event.stopPropagation();
-    window.open(job.applyUrl, "_blank", "noopener,noreferrer");
+    handleCardClick();
+  };
+
+  const handleToggleClick = (event) => {
+    event.stopPropagation();
+    setIsExpanded((prev) => !prev);
   };
 
   return (
@@ -17,6 +27,7 @@ function JobPostingCard({ job }) {
       role="button"
       tabIndex={0}
       onKeyDown={(event) => {
+        if (event.target !== event.currentTarget) return;
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           handleCardClick();
@@ -44,6 +55,9 @@ function JobPostingCard({ job }) {
           <div className="jobQuickInfoItem">
             <span className="jobQuickInfoLabel">Pay</span>
             <span>{job.payRange}</span>
+            {job.payDetails?.map((line, index) => (
+              <span key={index}>{line}</span>
+            ))}
           </div>
           <div className="jobQuickInfoItem">
             <span className="jobQuickInfoLabel">Job Type</span>
@@ -53,65 +67,44 @@ function JobPostingCard({ job }) {
             ))}
           </div>
         </div>
+
+        <p className="jobOverview">{job.overview}</p>
+
+        <button
+          type="button"
+          className="jobToggle"
+          onClick={handleToggleClick}
+          aria-expanded={isExpanded}
+        >
+          {isExpanded ? "Hide full posting" : "View full posting"}
+          <span className={`jobToggleArrow${isExpanded ? " isOpen" : ""}`} aria-hidden="true">
+            ▾
+          </span>
+        </button>
       </div>
 
-      <div className="jobCardBody">
-        <section className="jobSection">
-          <h4>Overview</h4>
-          <p>{job.overview}</p>
-        </section>
-
-        <section className="jobSection">
-          <h4>Core Duties</h4>
-          <ul>
-            {job.coreDuties.map((duty, index) => (
-              <li key={index}>{duty}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="jobSection">
-          <h4>Requirements</h4>
-          <ul>
-            {job.requirements.map((requirement, index) => (
-              <li key={index}>{requirement}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="jobSection">
-          <h4>What We Offer</h4>
-          <ul>
-            {job.whatWeOffer.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="jobSection">
-          <h4>Benefits</h4>
-          <ul>
-            {job.benefits.map((benefit, index) => (
-              <li key={index}>{benefit}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="jobSection">
-          <h4>About the Nutrition Hub Café at Wings Arena</h4>
-          <p>{job.cafeDescription}</p>
-        </section>
-
-        <section className="jobSection">
-          <h4>About Wings Arena</h4>
-          <p>{job.aboutWingsArena}</p>
-        </section>
-
-        <section className="jobSection">
-          <h4>We Value Diversity</h4>
-          <p>{job.diversityStatement}</p>
-        </section>
-      </div>
+      {isExpanded && (
+        <div className="jobCardBody">
+          {job.sections.map((section) => (
+            <section className="jobSection" key={section.title}>
+              <h4>{section.title}</h4>
+              {section.paragraphs?.map((text, index) => (
+                <p key={index}>{text}</p>
+              ))}
+              {section.items && (
+                <ul>
+                  {section.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {section.after?.map((text, index) => (
+                <p key={index}>{text}</p>
+              ))}
+            </section>
+          ))}
+        </div>
+      )}
 
       <div className="jobCardFooter">
         <div className="jobFooterLeft">
